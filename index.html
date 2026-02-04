@@ -43,24 +43,21 @@
 
     .btn:hover { background: #1a252f; transform: translateY(-2px); }
 
+    /* Header with Professional Navy Style */
     header {
       padding: 1rem 0;
-      background: var(--white);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      background: var(--navy);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
     .header-content { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-family: 'Lora', serif; font-size: 1.8rem; font-weight: 600; color: var(--navy); }
+    .logo { font-family: 'Lora', serif; font-size: 1.8rem; font-weight: 600; color: var(--white); }
     .nav-links { display: flex; gap: 1.5rem; }
-    .nav-links a { text-decoration: none; color: var(--navy); font-weight: 500; position: relative; }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2px;
-      background: var(--navy); transition: width 0.3s;
-    }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a { text-decoration: none; color: var(--white); font-weight: 500; transition: 0.3s; }
+    .nav-links a:hover { opacity: 0.8; }
 
     .hero { text-align: center; padding: 6rem 1rem 4rem; }
     .hero h1 { font-family: 'Lora', serif; font-size: 3.2rem; color: var(--navy); margin-bottom: 0.5rem; }
@@ -91,41 +88,55 @@
     .timeline-item:last-child::after { display: none; }
     .timeline-header { font-weight: 600; color: var(--navy); font-size: 1.1rem; }
 
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    /* Project Grid Setting - Keeping it horizontal */
+    .projects-grid { 
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 1.5rem; 
+      align-items: stretch;
+    }
+
     .project-card {
-      background: var(--white); border-radius: 12px; padding: 1.6rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06); transition: transform 0.3s;
+      background: var(--white); border-radius: 12px; padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06); 
       display: flex; flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      transition: 0.3s;
     }
     .project-card:hover { transform: translateY(-5px); }
-    .project-card h3 { color: var(--navy); margin-bottom: 0.8rem; }
+    .project-card h3 { color: var(--navy); margin-bottom: 0.8rem; font-size: 1.2rem; }
     
-    /* SQL Visual Styles */
     .sql-visual {
       margin: 1rem 0;
       border: 1px solid #eee;
       border-radius: 8px;
       overflow: hidden;
+      height: 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #fff;
     }
-    .sql-visual img { width: 100%; display: block; transition: 0.3s; cursor: pointer; }
-    .sql-visual img:hover { opacity: 0.9; }
+    .sql-visual img { max-width: 95%; max-height: 120px; object-fit: contain; margin: 0 auto; display: block; }
+
     .visual-label {
       font-size: 0.75rem; background: #f0f0f0; padding: 4px;
       text-align: center; color: var(--light-text); font-weight: 600;
     }
 
     .tech-stack {
-      margin-top: 1rem; font-size: 0.8rem; color: var(--navy); font-weight: 600;
+      margin-top: auto; font-size: 0.75rem; color: var(--navy); font-weight: 600;
       background: #eeebe5; padding: 4px 8px; border-radius: 4px; display: inline-block;
     }
 
-    .project-links { margin-top: 1.5rem; display: flex; gap: 0.8rem; }
+    .project-links { margin-top: 1.2rem; display: flex; gap: 0.6rem; }
     .project-links a {
-      flex: 1; text-align: center; padding: 8px; font-size: 0.85rem;
+      flex: 1; text-align: center; padding: 8px; font-size: 0.8rem;
       font-weight: 600; border-radius: 6px; text-decoration: none;
     }
     .live-link { background: var(--navy); color: white; }
-    .code-link { background: transparent; color: var(--navy); border: 1.5px solid var(--navy); }
+    .code-link { border: 1.5px solid var(--navy); color: var(--navy); }
 
     .contact-form {
       max-width: 600px; margin: 0 auto; background: var(--white);
@@ -134,13 +145,17 @@
     .form-group { margin-bottom: 1.2rem; }
     .form-group label { display: block; margin-bottom: 0.4rem; font-weight: 600; }
     .form-group input, .form-group textarea {
-      width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit;
+      width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit;
     }
 
     footer { text-align: center; padding: 3rem 0; background: var(--navy); color: white; }
 
+    @media (max-width: 992px) {
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 768px) {
       .about-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 2.5rem; }
     }
   </style>
@@ -217,26 +232,30 @@
     <h2 class="section-title">Featured Projects</h2>
     <div class="projects-grid">
       
-      
       <div class="project-card">
-        <h3>Employee Management System</h3>
-        <p>A relational database system designed to manage staff records and departments. Implemented with primary/foreign key relationships and optimized using INNER JOIN queries for reporting.</p>
-      <div class="sql-visual">
-  <img src="assets/img/Diagram_1.png" alt="ER Diagram" style="max-width: 95%; max-height: 160px; object-fit: contain;">
-    <div class="visual-label">Database ER Diagram (Schema Design)</div>
-</div>
-
+        <div>
+          <h3>Employee Management System</h3>
+          <p style="font-size: 0.85rem;">A relational database system designed to manage staff records and departments. Implemented with primary/foreign key relationships.</p>
+          <div class="sql-visual">
+            <img src="assets/img/Diagram_1.png" alt="ER Diagram">
+            <div class="visual-label">Database ER Diagram (Schema Design)</div>
+          </div>
+        </div>
         <div class="tech-stack">MySQL | Navicat | XAMPP</div>
         <div class="project-links">
-       <a href="https://nimraasim2005.github.io/portfolio/assets/img/Diagram_1.png" target="_blank" class="live-link">View Documentation</a>
-          <a href="https://github.com/nimraasim2005" target="_blank" class="code-link">SQL Script</a>
-        </div>
-      </div>
+  <a href="assets/img/Diagram_1.png" target="_blank" class="live-link">View Documentation</a>
+<a href="https://github.com/nimraasim2005/portfolio/blob/main/database_script.sql" target="_blank" class="code-link">SQL Script</a>
+</div>
       </div>
 
       <div class="project-card">
-        <h3>OneUpFits (E-commerce)</h3>
-        <p>A fitness apparel store with dynamic product filtering, shopping cart functionality, and a fully responsive layout.</p>
+        <div>
+          <h3>OneUpFits (E-commerce)</h3>
+          <p style="font-size: 0.85rem;">A fitness apparel store with dynamic product filtering, shopping cart functionality, and a fully responsive layout.</p>
+          <div class="sql-visual" style="background: #f9f9f9; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-shopping-bag" style="font-size: 2.5rem; color: #ddd;"></i>
+          </div>
+        </div>
         <div class="tech-stack">HTML | CSS | JavaScript</div>
         <div class="project-links">
           <a href="https://oneupfits.com" target="_blank" class="live-link">Live Site</a>
@@ -245,11 +264,16 @@
       </div>
 
       <div class="project-card">
-        <h3>Figma Design System</h3>
-        <p>Interactive prototypes and high-fidelity wireframes focusing on user-centric design principles.</p>
+        <div>
+          <h3>Figma Design System</h3>
+          <p style="font-size: 0.85rem;">Interactive prototypes and high-fidelity wireframes focusing on user-centric design principles.</p>
+          <div class="sql-visual" style="background: #f9f9f9; display: flex; align-items: center; justify-content: center;">
+            <i class="fab fa-figma" style="font-size: 2.5rem; color: #ddd;"></i>
+          </div>
+        </div>
         <div class="tech-stack">Figma | UI/UX Design</div>
         <div class="project-links">
-          <a href="https://www.figma.com/design/06l1NAKTNlYt2OnjqigsJJ/Untitled?node-id=0-1&t=QzQnzdlMR0LHGZJ1-1" target="_blank" class="live-link">View Prototype</a>
+          <a href="https://www.figma.com/design/06l1NAKTNlYt2OnjqigsJJ/Untitled?node-id=0-1" target="_blank" class="live-link">View Prototype</a>
           <a href="#" class="code-link">Case Study</a>
         </div>
       </div>
@@ -285,11 +309,4 @@
   </footer>
 
 </body>
-
 </html>
-
-
-
-
-
-
