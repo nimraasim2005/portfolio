@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nimra Asim | Full Stack Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --navy: #2c3e50;
+      --beige: #f8f5f0;
+      --text: #333333;
+      --light-text: #555555;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--beige);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    .container { width: 90%; max-width: 1000px; margin: 0 auto; }
+
+    /* Navy Blue Header */
+    header {
+      padding: 1rem 0;
+      background: var(--navy);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-content { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Lora', serif; font-size: 1.8rem; font-weight: 600; color: var(--white); }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { text-decoration: none; color: var(--white); font-weight: 500; transition: 0.3s; }
+    .nav-links a:hover { opacity: 0.8; }
+
+    /* Hero Section */
+    .hero { text-align: center; padding: 6rem 1rem 4rem; }
+    .hero h1 { font-family: 'Lora', serif; font-size: 3.2rem; color: var(--navy); margin-bottom: 0.5rem; }
+    .hero .subtitle { font-size: 1.4rem; color: var(--light-text); margin-bottom: 1.2rem; font-weight: 500; }
+
+    /* Section Styling */
+    section { padding: 5rem 0; }
+    .section-title { font-family: 'Lora', serif; font-size: 2.2rem; color: var(--navy); margin-bottom: 2.5rem; position: relative; display: inline-block; }
+    .section-title::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 60px; height: 3px; background: var(--navy); }
+
+    /* About & Skills */
+    .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; }
+    .skills-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .skills-list li { padding: 6px 0; display: flex; align-items: center; gap: 10px; font-weight: 500; }
+    .skills-list i { color: var(--navy); width: 20px; }
+
+    /* Education Timeline */
+    .timeline-item { margin-bottom: 2rem; position: relative; padding-left: 36px; }
+    .timeline-item::before { content: ''; position: absolute; left: 0; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: var(--navy); }
+    .timeline-item::after { content: ''; position: absolute; left: 5px; top: 20px; width: 2px; height: calc(100% + 15px); background: #d1d1d1; }
+    .timeline-item:last-child::after { display: none; }
+    .timeline-header { font-weight: 600; color: var(--navy); font-size: 1.1rem; }
+
+    /* Responsive Projects Grid */
+    .projects-grid { 
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 1.5rem; 
+      align-items: stretch;
+    }
+
+    .project-card {
+      background: var(--white); border-radius: 12px; padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06); 
+      display: flex; flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      transition: 0.3s;
+    }
+
+    .sql-visual {
+      height: 140px; margin: 15px 0; border: 1px solid #eee; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; overflow: hidden; background: #fff;
+    }
+    .sql-visual img { max-width: 95%; max-height: 120px; object-fit: contain; }
+
+    .tech-stack { font-size: 0.75rem; color: var(--navy); font-weight: 600; background: #eeebe5; padding: 4px 8px; border-radius: 4px; display: inline-block; }
+
+    .project-links { margin-top: 1.2rem; display: flex; gap: 0.6rem; }
+    .project-links a { flex: 1; text-align: center; padding: 8px; font-size: 0.8rem; font-weight: 600; border-radius: 6px; text-decoration: none; }
+    .live-link { background: var(--navy); color: white; }
+    .code-link { border: 1.5px solid var(--navy); color: var(--navy); }
+
+    /* Contact Form */
+    .contact-form { max-width: 600px; margin: 0 auto; background: var(--white); padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; margin-bottom: 0.4rem; font-weight: 600; }
+    .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; }
+
+    footer { text-align: center; padding: 3rem 0; background: var(--navy); color: white; }
+
+    /* Responsiveness */
+    @media (max-width: 992px) {
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.5rem; }
+      .header-content { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-content">
+      <div class="logo">Nimra Asim</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Nimra Asim</h1>
+      <div class="subtitle">Full Stack Developer | Computer Engineer</div>
+      <p>Building scalable web applications and efficient database systems at Hamdard University.</p>
+    </div>
+  </section>
+
+  <section id="about" class="container">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div>
+        <p>I am a Computer Systems Engineering student at Hamdard University with a strong foundation in both frontend and backend development. My goal is to create seamless user experiences backed by robust data architectures.</p>
+        <p style="margin-top:1rem;">✅ <strong>Languages:</strong> English (Professional) | Urdu (Native)</p>
+      </div>
+      <div>
+        <h3>Technical Skills</h3>
+        <ul class="skills-list">
+          <li><i class="fab fa-react"></i> React.js</li>
+          <li><i class="fas fa-database"></i> SQL / MySQL</li>
+          <li><i class="fab fa-js"></i> JavaScript</li>
+          <li><i class="fab fa-html5"></i> HTML5 / CSS3</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" style="background: #f0ede6;">
+    <div class="container">
+      <h2 class="section-title">Education & Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-header">Bachelors in Computer Systems Engineering</div>
+          <p>Hamdard University | 2023 – 2027 (GPA: 3.3)</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-header">Frontend Development Intern</div>
+          <p>Webnet Pakistan | July 2025 – Sept 2025</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-header">Frontend Web Designing Certification</div>
+          <p>Aptech Education | 2024</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="container">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+      
+      <div class="project-card">
+        <div>
+          <h3>Employee Management</h3>
+          <p style="font-size: 0.85rem;">Relational database system using primary/foreign key relationships.</p>
+          <div class="sql-visual">
+            <img src="assets/img/Diagram_1.png" alt="ER Diagram">
+          </div>
+        </div>
+        <div class="tech-stack">MySQL | Navicat | XAMPP</div>
+        <div class="project-links">
+          <a href="https://github.com/nimraasim2005/portfolio/blob/main/assets/img/Diagram_1.png" target="_blank" class="live-link">View Documentation</a>
+          <a href="https://github.com/nimraasim2005/portfolio/blob/main/database_script.sql" target="_blank" class="code-link">SQL Script</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <h3>OneUpFits (E-commerce)</h3>
+          <p style="font-size: 0.85rem;">Fitness apparel store with dynamic product filtering and layout.</p>
+          <div class="sql-visual" style="background: #f9f9f9;">
+            <i class="fas fa-shopping-bag" style="font-size: 2.5rem; color: #ddd;"></i>
+          </div>
+        </div>
+        <div class="tech-stack">HTML | CSS | JavaScript</div>
+        <div class="project-links">
+          <a href="https://oneupfits.com" target="_blank" class="live-link">Live Site</a>
+          <a href="https://github.com/nimraasim2005/Oneupfits" target="_blank" class="code-link">Source</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <h3>Figma Design System</h3>
+          <p style="font-size: 0.85rem;">Interactive prototypes and high-fidelity wireframes.</p>
+          <div class="sql-visual" style="background: #f9f9f9;">
+            <i class="fab fa-figma" style="font-size: 2.5rem; color: #ddd;"></i>
+          </div>
+        </div>
+        <div class="tech-stack">Figma | UI/UX Design</div>
+        <div class="project-links">
+          <a href="https://www.figma.com/design/06l1NAKTNlYt2OnjqigsJJ/Untitled?node-id=0-1" target="_blank" class="live-link">Prototype</a>
+          <a href="#" class="code-link">Case Study</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="container">
+    <h2 class="section-title">Get In Touch</h2>
+    <form class="contact-form" action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
+      <div class="form-group"><input type="text" name="name" placeholder="Full Name" required></div>
+      <div class="form-group"><input type="email" name="email" placeholder="Email Address" required></div>
+      <div class="form-group"><textarea name="message" rows="4" placeholder="Your Message" required></textarea></div>
+      <button type="submit" style="width:100%; padding: 12px; background: var(--navy); color: white; border: none; border-radius: 6px; cursor: pointer;">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>📞 0312-2804981 | ✉️ nimraasim2005@gmail.com</p>
+      <p>© 2026 Nimra Asim. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
