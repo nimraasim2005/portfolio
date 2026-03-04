@@ -3,146 +3,248 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nimra Asim | Creative Full Stack Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <title>Nimra Asim | Full Stack Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
   <style>
     :root {
-      --primary-grad: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-      --glass: rgba(255, 255, 255, 0.7);
-      --text: #1e293b;
+      --navy: #2c3e50;
+      --beige: #f8f5f0;
+      --text: #333333;
+      --light-text: #555555;
       --white: #ffffff;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Outfit', sans-serif; background: #f1f5f9; color: var(--text); overflow-x: hidden; scroll-behavior: smooth; }
 
-    /* --- FLOATING DECORATIONS --- */
-    .shape { position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; }
-    .shape-1 { width: 400px; height: 400px; background: rgba(99, 102, 241, 0.2); top: -100px; right: -100px; }
-    .shape-2 { width: 300px; height: 300px; background: rgba(168, 85, 247, 0.2); bottom: -50px; left: -50px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--beige);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
 
     .container { width: 90%; max-width: 1100px; margin: 0 auto; }
 
-    /* --- GLASS NAV --- */
-    header { padding: 1.5rem 0; background: var(--glass); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.3); }
-    .header-content { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 1.8rem; font-weight: 800; background: var(--primary-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .nav-links a { text-decoration: none; color: var(--text); margin-left: 2rem; font-weight: 600; transition: 0.3s; }
-    .nav-links a:hover { color: #6366f1; }
-
-    /* --- CREATIVE HERO --- */
-    .hero { padding: 10rem 0 6rem; text-align: center; }
-    .hero h1 { font-size: 4.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; background: var(--primary-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero p { font-size: 1.3rem; color: #64748b; max-width: 750px; margin: 0 auto 3rem; font-weight: 400; }
-    .hero-btn { background: var(--primary-grad); color: white; padding: 18px 45px; border-radius: 15px; text-decoration: none; font-weight: 600; font-size: 1.1rem; box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3); transition: 0.3s; }
-    .hero-btn:hover { transform: scale(1.05); }
-
-    /* --- PROJECT CARDS --- */
-    section { padding: 6rem 0; }
-    .section-title { font-size: 2.5rem; font-weight: 800; text-align: center; margin-bottom: 4rem; }
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
-    
-    .project-card { 
-      background: var(--glass); backdrop-filter: blur(10px); border-radius: 30px; padding: 2.5rem; 
-      border: 1px solid rgba(255,255,255,0.5); transition: 0.5s; display: flex; flex-direction: column; height: 100%;
+    header {
+      padding: 1rem 0;
+      background: var(--navy);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    .project-card:hover { transform: translateY(-15px) rotate(1deg); background: rgba(255, 255, 255, 0.9); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1); }
+
+    .header-content { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Lora', serif; font-size: 1.6rem; font-weight: 600; color: var(--white); }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { text-decoration: none; color: var(--white); font-weight: 500; font-size: 0.95rem; transition: 0.3s; }
+    .nav-links a:hover { opacity: 0.7; }
+
+    .hero { text-align: center; padding: 5rem 1rem 3rem; }
+    .hero h1 { font-family: 'Lora', serif; font-size: 3rem; color: var(--navy); margin-bottom: 0.5rem; }
+    .hero .subtitle { font-size: 1.3rem; color: var(--light-text); margin-bottom: 1.5rem; font-weight: 500; }
+
+    section { padding: 4rem 0; }
+    .section-title { font-family: 'Lora', serif; font-size: 2rem; color: var(--navy); margin-bottom: 2.5rem; position: relative; display: inline-block; }
+    .section-title::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 50px; height: 3px; background: var(--navy); }
+
+    .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; }
+    .skills-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 1rem; }
+    .skills-list li { display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 0.9rem; }
+    .skills-list i { color: var(--navy); font-size: 1.1rem; }
+
+    .timeline { margin-top: 1rem; }
+    .timeline-item { margin-bottom: 2rem; position: relative; padding-left: 30px; border-left: 2px solid #d1d1d1; }
+    .timeline-item::before { content: ''; position: absolute; left: -7px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--navy); }
+    .timeline-header { font-weight: 600; color: var(--navy); font-size: 1.1rem; }
+
+    .projects-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+      gap: 2rem; 
+      margin-top: 1rem;
+    }
+
+    .project-card {
+      background: var(--white); border-radius: 12px; padding: 1.8rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+      display: flex; flex-direction: column;
+      height: 100%; transition: 0.3s;
+    }
+    .project-card:hover { transform: translateY(-8px); }
+    .project-card h3 { color: var(--navy); margin-bottom: 0.8rem; font-size: 1.25rem; }
     
-    .card-img { height: 200px; background: white; border-radius: 20px; margin: 1.5rem 0; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: inset 0 2px 10px rgba(0,0,0,0.05); }
-    .card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .sql-visual {
+      height: 160px; margin: 1rem 0; border: 1px solid #f0f0f0; border-radius: 8px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fafafa; overflow: hidden;
+    }
+    .sql-visual img { max-width: 95%; max-height: 130px; object-fit: contain; }
+    .visual-label { font-size: 0.7rem; color: #888; margin-top: 5px; font-weight: 600; }
 
-    .tech-pill { font-size: 0.75rem; font-weight: 700; color: #6366f1; background: #e0e7ff; padding: 6px 16px; border-radius: 50px; margin-right: 8px; }
+    .tech-stack { margin-top: auto; font-size: 0.75rem; color: var(--navy); font-weight: 700; background: #eeebe5; padding: 5px 10px; border-radius: 4px; display: inline-block; }
 
-    .links { margin-top: auto; display: flex; gap: 12px; padding-top: 2rem; }
-    .links a { flex: 1; text-align: center; padding: 14px; border-radius: 12px; text-decoration: none; font-size: 0.9rem; font-weight: 700; transition: 0.3s; }
-    .btn-live { background: var(--primary-grad); color: white; }
-    .btn-code { border: 2px solid #e2e8f0; color: var(--text); }
-    .btn-live:hover { box-shadow: 0 5px 15px rgba(168, 85, 247, 0.4); }
+    .project-links { margin-top: 1.5rem; display: flex; gap: 0.8rem; }
+    .project-links a { flex: 1; text-align: center; padding: 10px; font-size: 0.85rem; font-weight: 600; border-radius: 6px; text-decoration: none; transition: 0.3s; }
+    .live-link { background: var(--navy); color: white; }
+    .code-link { border: 1.5px solid var(--navy); color: var(--navy); }
+    .live-link:hover { background: #1a252f; }
 
-    /* --- CONTACT --- */
-    .contact-card { max-width: 700px; margin: 0 auto; background: var(--white); padding: 4rem; border-radius: 40px; box-shadow: 0 30px 60px -12px rgba(0,0,0,0.1); text-align: center; }
-    input, textarea { width: 100%; padding: 18px; border: 2px solid #f1f5f9; border-radius: 15px; margin-bottom: 1.5rem; font-family: inherit; transition: 0.3s; }
-    input:focus { border-color: #6366f1; outline: none; }
-    .send-btn { width: 100%; padding: 18px; background: var(--primary-grad); color: white; border: none; border-radius: 15px; font-weight: 700; cursor: pointer; font-size: 1.1rem; }
+    .contact-form { max-width: 600px; margin: 0 auto; background: var(--white); padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; }
+    .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem; }
+    .submit-btn { width: 100%; padding: 14px; background: var(--navy); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; transition: 0.3s; }
 
-    footer { padding: 6rem 0; text-align: center; font-weight: 500; }
+    footer { text-align: center; padding: 3rem 0; background: var(--navy); color: white; margin-top: 2rem; }
 
-    @media (max-width: 768px) { .hero h1 { font-size: 3rem; } .contact-card { padding: 2rem; } }
+    @media (max-width: 992px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero h1 { font-size: 2.5rem; }
+    }
+
+    @media (max-width: 768px) {
+      .header-content { flex-direction: column; gap: 15px; text-align: center; }
+      .nav-links { gap: 1rem; }
+      .hero { padding: 4rem 1rem 2rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .contact-form { padding: 1.5rem; }
+    }
   </style>
 </head>
 <body>
-
-  <div class="shape shape-1"></div>
-  <div class="shape shape-2"></div>
 
   <header>
     <div class="container header-content">
       <div class="logo">Nimra Asim</div>
       <nav class="nav-links">
-        <a href="#projects">Projects</a>
         <a href="#about">About</a>
+        <a href="#experience">Education</a>
+        <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero container">
-    <h1>Building Digital <br> Experiences.</h1>
-    <p>Computer Systems Engineer specialized in crafting full-stack solutions and robust database architectures.</p>
-    <a href="#projects" class="hero-btn">Explore Work</a>
+  <section class="hero">
+    <div class="container">
+      <h1>Nimra Asim</h1>
+      <div class="subtitle">Full Stack Developer | Computer Engineer</div>
+      <p>Building scalable web applications and efficient database systems at Hamdard University.</p>
+    </div>
+  </section>
+
+  <section id="about" class="container">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div>
+        <p>I am a Computer Systems Engineering student at Hamdard University with a strong foundation in both frontend and backend development. My goal is to create seamless user experiences backed by robust data architectures.</p>
+        <p style="margin-top:1rem;">✅ <strong>Languages:</strong> English (Professional) | Urdu (Native)</p>
+      </div>
+      <div>
+        <h3>Technical Skills</h3>
+        <ul class="skills-list">
+          <li><i class="fab fa-react"></i> React.js</li>
+          <li><i class="fas fa-database"></i> SQL / MySQL</li>
+          <li><i class="fab fa-js"></i> JavaScript</li>
+          <li><i class="fab fa-html5"></i> HTML5 / CSS3</li>
+          <li><i class="fab fa-bootstrap"></i> Bootstrap</li>
+          <li><i class="fas fa-bezier-curve"></i> Figma (UI/UX)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" style="background: #f0ede6;">
+    <div class="container">
+      <h2 class="section-title">Education & Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-header">Bachelors in Computer Systems Engineering</div>
+          <p>Hamdard University | 2023 – 2027 (GPA: 3.3)</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-header">Frontend Development Intern</div>
+          <p>Webnet Pakistan | July 2025 – Sept 2025</p>
+          <p style="font-size: 0.85rem; color: var(--light-text);">Optimized responsive layouts and cross-browser performance.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-header">Frontend Web Designing Certification</div>
+          <p>Aptech Education | 2024</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="projects" class="container">
-    <h2 class="section-title">Selected Works</h2>
+    <h2 class="section-title">Featured Projects</h2>
+    
     <div class="projects-grid">
       
       <div class="project-card">
-        <div style="display: flex; gap: 5px;">
-          <span class="tech-pill">PHP</span>
-          <span class="tech-pill">MySQL</span>
+        <div>
+          <h3>Bright Future Academy</h3>
+          <p style="font-size: 0.85rem;">Full-stack school portal with PHP backend and MySQL database for managing faculty and inquiries.</p>
+          <div class="sql-visual">
+            <img src="assets/education.png" alt="School Portal">
+            <div class="visual-label">Academic Web Portal</div>
+          </div>
         </div>
-        <h3 style="margin-top: 15px; font-size: 1.6rem;">Bright Future Academy</h3>
-        <p style="color: #64748b; font-size: 0.9rem; margin-top: 10px;">A high-performance academic management portal.</p>
-        <div class="card-img">
-          <img src="https://via.placeholder.com/400x200/6366f1/ffffff?text=Education+Portal" alt="School Project">
-        </div>
-        <div class="links">
-          <a href="http://educationproject.page.gd/index.php" target="_blank" class="btn-live">Live Demo</a>
-          <a href="https://github.com/nimraasim2005/education" target="_blank" class="btn-code">GitHub</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div style="display: flex; gap: 5px;">
-          <span class="tech-pill">Database</span>
-          <span class="tech-pill">SQL</span>
-        </div>
-        <h3 style="margin-top: 15px; font-size: 1.6rem;">Employee System</h3>
-        <p style="color: #64748b; font-size: 0.9rem; margin-top: 10px;">Scalable relational database for corporate management.</p>
-        <div class="card-img">
-          <img src="./assets/img/Diagram_1.png" alt="Database ERD">
-        </div>
-        <div class="links">
-          <a href="https://github.com/nimraasim2005/portfolio/blob/main/database_script.sql" target="_blank" class="btn-live">SQL Script</a>
-          <a href="#" class="btn-code">Details</a>
+        <div class="tech-stack">PHP | MySQL | Bootstrap 5</div>
+        <div class="project-links">
+          <a href="http://educationproject.page.gd/index.php" target="_blank" class="live-link">Live Site</a>
+          <a href="https://github.com/nimraasim2005/education" target="_blank" class="code-link">GitHub</a>
         </div>
       </div>
 
       <div class="project-card">
-        <div style="display: flex; gap: 5px;">
-          <span class="tech-pill">E-commerce</span>
-          <span class="tech-pill">UI/UX</span>
+        <div>
+          <h3>Employee Management</h3>
+          <p style="font-size: 0.85rem;">Relational database system using primary/foreign key relationships for staff records.</p>
+          <div class="sql-visual">
+        <img src="./assets/img/Diagram_1.png" alt="ER Diagram">
+            <div class="visual-label">Database ER Diagram</div>
+          </div>
         </div>
-        <h3 style="margin-top: 15px; font-size: 1.6rem;">OneUpFits Store</h3>
-        <p style="color: #64748b; font-size: 0.9rem; margin-top: 10px;">Responsive fitness marketplace with modern frontend.</p>
-        <div class="card-img">
-          <img src="./assets/Oneupfits.png" alt="OneUpFits">
+        <div class="tech-stack">MySQL | Navicat | XAMPP</div>
+        <div class="project-links">
+        <a href="https://github.com/nimraasim2005/portfolio/blob/main/Diagram_1.png" target="_blank" class="live-link">View Documentation</a>
+          <a href="https://github.com/nimraasim2005/portfolio/blob/main/database_script.sql" target="_blank" class="code-link">SQL Script</a>
         </div>
-        <div class="links">
-          <a href="https://oneupfits.com" target="_blank" class="btn-live">Live Site</a>
-          <a href="https://github.com/nimraasim2005/Oneupfits" target="_blank" class="btn-code">Source</a>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <h3>OneUpFits (E-commerce)</h3>
+          <p style="font-size: 0.85rem;">Fitness apparel store with dynamic product filtering and fully responsive layout.</p>
+          <div class="sql-visual">
+            <img src="./assets/Oneupfits.png" alt="OneUpFits">
+            <div class="visual-label">Live E-commerce Platform</div>
+          </div>
+        </div>
+        <div class="tech-stack">HTML | CSS | JavaScript</div>
+        <div class="project-links">
+          <a href="https://oneupfits.com" target="_blank" class="live-link">Live Site</a>
+          <a href="https://github.com/nimraasim2005/Oneupfits" target="_blank" class="code-link">Source Code</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <h3>Figma Design System</h3>
+          <p style="font-size: 0.85rem;">Interactive prototypes and high-fidelity wireframes focusing on UX design.</p>
+          <div class="sql-visual">
+            <img src="./assets/figma.png" alt="figma">
+            <div class="visual-label">UI/UX Prototypes</div>
+          </div>
+        </div>
+        <div class="tech-stack">Figma | UI/UX Design</div>
+        <div class="project-links">
+          <a href="https://www.figma.com/design/06l1NAKTNlYt2OnjqigsJJ/Untitled?node-id=0-1" target="_blank" class="live-link">View Prototype</a>
+          <a href="#" class="code-link">Case Study</a>
         </div>
       </div>
 
@@ -150,21 +252,29 @@
   </section>
 
   <section id="contact" class="container">
-    <div class="contact-card">
-      <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Let's Talk.</h2>
-      <p style="color: #64748b; margin-bottom: 2.5rem;">Have a project in mind? Reach out and let's build something amazing.</p>
-      <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
-        <input type="text" placeholder="Name" required>
-        <input type="email" placeholder="Email" required>
-        <textarea rows="4" placeholder="Message"></textarea>
-        <button type="submit" class="send-btn">Get Started</button>
-      </form>
-    </div>
+    <h2 class="section-title">Get In Touch</h2>
+    <form class="contact-form" action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" name="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="email@example.com" required>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" rows="5" placeholder="How can I help you?" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
   </section>
 
   <footer>
-    <p>📞 0312-2804981 | ✉️ nimraasim2005@gmail.com</p>
-    <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 1.5rem;">© 2026 Nimra Khan | Computer Engineering Graduate. Developed with Precision.</p>
+    <div class="container">
+      <p>📞 0312-2804981 | ✉️ nimraasim2005@gmail.com</p>
+      <p style="margin-top: 1rem; opacity: 0.8;">© 2026 Nimra Khan | Computer Engineering Graduate. All Rights Reserved.</p>
+    </div>
   </footer>
 
 </body>
