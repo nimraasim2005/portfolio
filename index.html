@@ -23,13 +23,12 @@
       background-color: var(--beige);
       color: var(--text);
       line-height: 1.6;
-      overflow-x: hidden; /* Mobile horizontal scroll fix */
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
     .container { width: 90%; max-width: 1100px; margin: 0 auto; }
 
-    /* --- HEADER (NAVY STYLE) --- */
     header {
       padding: 1rem 0;
       background: var(--navy);
@@ -45,29 +44,24 @@
     .nav-links a { text-decoration: none; color: var(--white); font-weight: 500; font-size: 0.95rem; transition: 0.3s; }
     .nav-links a:hover { opacity: 0.7; }
 
-    /* --- HERO --- */
     .hero { text-align: center; padding: 5rem 1rem 3rem; }
     .hero h1 { font-family: 'Lora', serif; font-size: 3rem; color: var(--navy); margin-bottom: 0.5rem; }
     .hero .subtitle { font-size: 1.3rem; color: var(--light-text); margin-bottom: 1.5rem; font-weight: 500; }
 
-    /* --- SECTIONS --- */
     section { padding: 4rem 0; }
     .section-title { font-family: 'Lora', serif; font-size: 2rem; color: var(--navy); margin-bottom: 2.5rem; position: relative; display: inline-block; }
     .section-title::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 50px; height: 3px; background: var(--navy); }
 
-    /* --- ABOUT & SKILLS --- */
     .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; }
     .skills-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 1rem; }
     .skills-list li { display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 0.9rem; }
     .skills-list i { color: var(--navy); font-size: 1.1rem; }
 
-    /* --- EDUCATION TIMELINE --- */
     .timeline { margin-top: 1rem; }
     .timeline-item { margin-bottom: 2rem; position: relative; padding-left: 30px; border-left: 2px solid #d1d1d1; }
     .timeline-item::before { content: ''; position: absolute; left: -7px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--navy); }
     .timeline-header { font-weight: 600; color: var(--navy); font-size: 1.1rem; }
 
-    /* --- PROJECTS GRID (RESPONSIVE ERROR FIX) --- */
     .projects-grid { 
       display: grid; 
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -99,17 +93,14 @@
     .code-link { border: 1.5px solid var(--navy); color: var(--navy); }
     .live-link:hover { background: #1a252f; }
 
-    /* --- CONTACT FORM --- */
     .contact-form { max-width: 600px; margin: 0 auto; background: var(--white); padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
     .form-group { margin-bottom: 1.5rem; }
     .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; }
     .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem; }
     .submit-btn { width: 100%; padding: 14px; background: var(--navy); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; transition: 0.3s; }
 
-    /* --- FOOTER --- */
     footer { text-align: center; padding: 3rem 0; background: var(--navy); color: white; margin-top: 2rem; }
 
-    /* --- RESPONSIVE MEDIA QUERIES --- */
     @media (max-width: 992px) {
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .hero h1 { font-size: 2.5rem; }
@@ -191,32 +182,48 @@
   <section id="projects" class="container">
     <h2 class="section-title">Featured Projects</h2>
     
-   <div class="projects-grid">
+    <div class="projects-grid">
       
-  <div class="project-card">
-    <div>
-      <h3>Employee Management</h3>
-      <p style="font-size: 0.85rem;">Relational database system using primary/foreign key relationships for staff records.</p>
-      <div class="sql-visual">
-        <img src="Diagram_1.png" alt="ER Diagram">
-        <div class="visual-label">Database ER Diagram</div>
+      <div class="project-card">
+        <div>
+          <h3>Bright Future Academy</h3>
+          <p style="font-size: 0.85rem;">Full-stack school portal with PHP backend and MySQL database for managing faculty and inquiries.</p>
+          <div class="sql-visual">
+            <img src="assets/education.png" alt="School Portal">
+            <div class="visual-label">Academic Web Portal</div>
+          </div>
+        </div>
+        <div class="tech-stack">PHP | MySQL | Bootstrap 5</div>
+        <div class="project-links">
+          <a href="http://educationproject.page.gd/index.php" target="_blank" class="live-link">Live Site</a>
+          <a href="https://github.com/nimraasim2005/education" target="_blank" class="code-link">GitHub</a>
+        </div>
       </div>
-    </div>
-    <div class="tech-stack">MySQL | Navicat | XAMPP</div>
-    <div class="project-links">
-      <a href="https://github.com/nimraasim2005/portfolio/blob/main/Diagram_1.png" target="_blank" class="live-link">View Documentation</a>
-      <a href="https://github.com/nimraasim2005/portfolio/blob/main/database_script.sql" target="_blank" class="code-link">SQL Script</a>
-    </div>
-  </div>
-<div class="project-card">
+
+      <div class="project-card">
+        <div>
+          <h3>Employee Management</h3>
+          <p style="font-size: 0.85rem;">Relational database system using primary/foreign key relationships for staff records.</p>
+          <div class="sql-visual">
+        <img src="./assets/img/Diagram_1.png" alt="ER Diagram">
+            <div class="visual-label">Database ER Diagram</div>
+          </div>
+        </div>
+        <div class="tech-stack">MySQL | Navicat | XAMPP</div>
+        <div class="project-links">
+        <a href="https://github.com/nimraasim2005/portfolio/blob/main/Diagram_1.png" target="_blank" class="live-link">View Documentation</a>
+          <a href="https://github.com/nimraasim2005/portfolio/blob/main/database_script.sql" target="_blank" class="code-link">SQL Script</a>
+        </div>
+      </div>
+
+      <div class="project-card">
         <div>
           <h3>OneUpFits (E-commerce)</h3>
           <p style="font-size: 0.85rem;">Fitness apparel store with dynamic product filtering and fully responsive layout.</p>
-         
-         <div class="sql-visual">
-  <img src="Oneupfits.png" alt="OneUpFits Preview">
-  <div class="visual-label">Live E-commerce Platform</div>
-</div>
+          <div class="sql-visual">
+            <img src="./assets/Oneupfits.png" alt="OneUpFits">
+            <div class="visual-label">Live E-commerce Platform</div>
+          </div>
         </div>
         <div class="tech-stack">HTML | CSS | JavaScript</div>
         <div class="project-links">
@@ -230,7 +237,7 @@
           <h3>Figma Design System</h3>
           <p style="font-size: 0.85rem;">Interactive prototypes and high-fidelity wireframes focusing on UX design.</p>
           <div class="sql-visual">
-            <img src="figma.png" alt="Figma Prototype">
+            <img src="./assets/figma.png" alt="figma">
             <div class="visual-label">UI/UX Prototypes</div>
           </div>
         </div>
@@ -241,7 +248,7 @@
         </div>
       </div>
 
-</div>
+    </div>
   </section>
 
   <section id="contact" class="container">
@@ -266,16 +273,9 @@
   <footer>
     <div class="container">
       <p>📞 0312-2804981 | ✉️ nimraasim2005@gmail.com</p>
-      <p style="margin-top: 1rem; opacity: 0.8;">© 2026 Nimra Asim. All Rights Reserved.</p>
+      <p style="margin-top: 1rem; opacity: 0.8;">© 2026 Nimra Khan | Computer Engineering Graduate. All Rights Reserved.</p>
     </div>
   </footer>
 
 </body>
 </html>
-
-
-
-
-
-
-
